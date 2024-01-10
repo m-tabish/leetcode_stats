@@ -3,10 +3,9 @@ import { useContext } from "react";
 import UserContext from "../Context/UserContext";
 function Heading() {
 	const { entry } = useContext(UserContext);
-	const apiUrl = `https://leetcode-stats-api.herokuapp.com/${entry}`;
+	// const apiUrl = `https://leetcode-stats-api.herokuapp.com/${entry}`;
 
-	const ar = apiUrl.split("/");
-	const heading = ar[3];
+	 
 
 	if (!entry) {
 		return <h1 className="text-5xl ">Enter Username</h1>;

@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import UserContext from "../Context/UserContext";
 
 const LeftCol = () => {
-	const { entry, setEntry } = useContext(UserContext);
+	const { entry } = useContext(UserContext);
 	const [total, setTotal] = useState(null);
 	const [easy, setEasy] = useState(0);
 	const [medium, setMedium] = useState(0);
@@ -27,7 +27,7 @@ const LeftCol = () => {
 	}, [apiUrl, entry]);
 
 	if (!entry) {
-		return <h1></h1>;
+		return <div></div>;
 	}
 
 	if (total === 0) {
