@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/stats_leetcode/static/css/main.802a7859.css",
+    "main.js": "/stats_leetcode/static/js/main.9695ca92.js",
+    "static/js/787.731b3ca9.chunk.js": "/stats_leetcode/static/js/787.731b3ca9.chunk.js",
+    "static/media/x_icon.png": "/stats_leetcode/static/media/x_icon.b265b1b2f7205ce7a5ce.png",
+    "index.html": "/stats_leetcode/index.html",
+    "main.802a7859.css.map": "/stats_leetcode/static/css/main.802a7859.css.map",
+    "main.9695ca92.js.map": "/stats_leetcode/static/js/main.9695ca92.js.map",
+    "787.731b3ca9.chunk.js.map": "/stats_leetcode/static/js/787.731b3ca9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.802a7859.css",
+    "static/js/main.9695ca92.js"
+  ]
+}
