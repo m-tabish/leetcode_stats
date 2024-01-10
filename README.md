@@ -13,7 +13,7 @@ A small project created by myself as I move forward to become a Front-end Web De
 
 
 ## Notes
-At the time of pushing this repo, the webpage shows my data only, I will try to add an input box where you can enter any username to see its corresponding data soon but cannot promise it. Feel free to contribute I will definitely try to review the PR and merge. Till then, Peace.
+You can view anyone's leetcode stats by just entering their username. Feel free to tell me what you think @ mohdtabishkhan001@gmail.com
 
 ## Authors
 
