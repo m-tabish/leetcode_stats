@@ -12,7 +12,7 @@ A small project created by myself as I move forward to become a Front-end Web De
 
 
 
-## Notes
+## How to use?
 You can view anyone's leetcode stats by just entering their username. Feel free to tell me what you think @ mohdtabishkhan001@gmail.com
 
 ## Authors
