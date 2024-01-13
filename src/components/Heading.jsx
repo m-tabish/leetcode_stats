@@ -5,10 +5,13 @@ function Heading() {
 	const { entry } = useContext(UserContext);
 	// const apiUrl = `https://leetcode-stats-api.herokuapp.com/${entry}`;
 
-	 
-
 	if (!entry) {
-		return <h1 className="text-5xl ">Welcome To Leetcode_Stats</h1>;
+		return (
+			<h1 className="text-5xl ">
+				{" "}
+				&lt; <u>Welcome to Leetcode_stats</u> &gt;
+			</h1>
+		);
 	}
 	return (
 		<>
