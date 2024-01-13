@@ -8,7 +8,7 @@ function Heading() {
 	 
 
 	if (!entry) {
-		return <h1 className="text-5xl ">Enter Username</h1>;
+		return <h1 className="text-5xl ">Welcome To Leetcode_Stats</h1>;
 	}
 	return (
 		<>
