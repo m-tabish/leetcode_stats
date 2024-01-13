@@ -1,6 +1,6 @@
 {
-	"homepage": "https://m-tabish.github.io/leetcode_stats",
-	"name": "stats_leetcode",
+	"homepage": "https://m-tabish.github.io/leetcode_stats/",
+	"name": "leetcode_stats",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
