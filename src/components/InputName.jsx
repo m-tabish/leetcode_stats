@@ -19,26 +19,42 @@ const EnterName = () => {
 
 	window.onload = function () {
 		var last = localStorage.getItem("prevEntry");
-		setPrevEntry(last);
+		if (last !== null) setPrevEntry(last);
 	}
+
 	//Functions--------------------------------- 
 	const handleClick = (e) => {
-		e.preventDefault();
 		setEntry(userName);
-		if (entry !== null)
-			disable(0);
+		if (e.target.value === null) {
+			console.log("null");
+			returnHome();
+		}
+		if (e.target.value !== null) {
+			console.log(e.target.value + "1");
+			setEntry(userName);
+			showPrevUser(0);
+		}
+
+
 	};
+
 	const pressedKey = (e) => {
 
 		const key = e.key;
 		if (key === "Enter") {
-			disable(0);
-			setEntry(userName);
+			if (entry === null) {
+				showPrevUser(1);
+
+			}
+			else {
+				setEntry(userName);
+				showPrevUser(0);
+			}
 
 		}
 	};
 
-	function disable(n) {
+	function showPrevUser(n) {
 		if (n === 0) {
 			document.getElementById("prevName").style.display = "none";
 
@@ -49,16 +65,26 @@ const EnterName = () => {
 		}
 
 	}
-	const addPrevUser = () => {
-		setEntry(prevEntry);
+	const addPrevUser = (e) => {
+		if (e.target.value !== null) setPrevEntry(entry);
+		showPrevUser(1);
 	}
-
+	const returnHome = () => {
+		setEntry(null);
+		showPrevUser(1);
+	}
 	//------------------------------------------
 
 
 	return (
 		<>
 			<div className="w-1/5 flex justify-center items-center gap-2">
+				<button
+					type="button"
+					className="border-2 border-white w-2/5 rounded-full "
+					onClick={returnHome}>
+					Home
+				</button>
 				<input
 					type="text"
 					placeholder="Enter Username"
@@ -75,7 +101,7 @@ const EnterName = () => {
 					Submit
 				</button>
 			</div>
-			<div className=" prevName p-3 w-auto h-auto block text-center text-xl flex justify-between items-center gap-7" id="prevName" onClick={addPrevUser}><u>{prevEntry}</u>
+			<div className=" prevName p-3 w-auto h-auto text-center text-xl flex justify-between items-center gap-7 " id="prevName" onClick={(e) => addPrevUser}><u>{prevEntry}</u>
 				<button className="border-white border-2 w-10">
 					X
 				</button>

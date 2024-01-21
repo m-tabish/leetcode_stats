@@ -21,7 +21,7 @@ const Data = () => {
 				setEasy(res.data.easySolved);
 				setMedium(res.data.mediumSolved);
 				setHard(res.data.hardSolved);
-				setShow(1);
+			 
 			})
 			.catch((error) => {
 				console.error("Error showing data:", error);
@@ -33,8 +33,7 @@ const Data = () => {
 		return <div></div>;
 	}
 
-	if (total === 0) {
-		setShow(0);
+	if (total === 0) { 
 		return <h1 className="text-5xl">Incorrect Username</h1>;
 	}
 
@@ -52,7 +51,8 @@ const Data = () => {
 					Solved: {medium}
 				</div>
 				<div className="text-2xl font-bold flex gap-3  items-center">
-					<div className=" w-4 h-4 bg-red-500 rounded-full "></div> Hard Solved:
+					<div className=" w-4 h-4 bg-red-500 rounded-full "></div>
+					 Hard Solved:
 					{hard}
 				</div>
 			</div>
