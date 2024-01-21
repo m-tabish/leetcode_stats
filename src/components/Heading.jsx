@@ -5,13 +5,8 @@ import UserContext from "../Context/UserContext";
 function Heading() {
   const { entry } = useContext(UserContext);
 
-  if (!entry || entry === "") {
-    return (
-      <h1 className="text-5xl">
-        &lt; <u>Welcome to Leetcode_stats</u> &gt;
-      </h1>
-    );
-  }
+  if (!entry || entry === "")  
+    return  <h1 className="text-5xl">{'<'} <u>Welcome to Leetcode_stats</u> {'>'}</h1> 
 
   return (
     <>

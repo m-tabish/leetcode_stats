@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import UserContext from "../Context/UserContext";
+import UserContext from "../Context/UserContext"; 
 
-const LeftCol = () => {
-	const { entry } = useContext(UserContext);
+
+const Data = () => {
+	const { entry, show,setShow } = useContext(UserContext);
 	const [total, setTotal] = useState(null);
 	const [easy, setEasy] = useState(0);
 	const [medium, setMedium] = useState(0);
@@ -31,6 +32,7 @@ const LeftCol = () => {
 	}
 
 	if (total === 0) {
+	 
 		return <h1 className="text-5xl">Incorrect Username</h1>;
 	}
 	return (
@@ -55,4 +57,4 @@ const LeftCol = () => {
 	);
 };
 
-export default LeftCol;
+export default Data;
