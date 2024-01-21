@@ -7,48 +7,50 @@ const EnterName = () => {
 	const [userName, setUserName] = useState("");
 	const { entry, setEntry, show, setShow } = useContext(UserContext);
 
-	var [prevEntry, setPrevEntry] = useState(["user"]);
+	var [prevEntry, setPrevEntry] = useState("");
 
 
 	//saving to local storage-------------------
 
 	window.onbeforeunload = function () {
-		sessionStorage.setItem("prevEntry", entry);
+		if (entry !== null) localStorage.setItem("prevEntry", entry);
+		setPrevEntry(localStorage.getItem("prevEntry"));
 	}
 
 	window.onload = function () {
-		var last = sessionStorage.getItem("prevEntry");
+		var last = localStorage.getItem("prevEntry");
 		setPrevEntry(last);
-		disable(0);
 	}
 	//Functions--------------------------------- 
 	const handleClick = (e) => {
 		e.preventDefault();
 		setEntry(userName);
 		if (entry !== null)
-			disable(1);
+			disable(0);
 	};
 	const pressedKey = (e) => {
 
 		const key = e.key;
 		if (key === "Enter") {
+			disable(0);
 			setEntry(userName);
-			disable(1);
+
 		}
 	};
 
 	function disable(n) {
-		if (n === 1) {
-			document.getElementById("prevName").style.display = "none";
-			setShow(1);
-		}
 		if (n === 0) {
-			document.getElementById("prevName").style.display = "block";
-			setShow(0);
+			document.getElementById("prevName").style.display = "none";
+
 		}
+		if (n === 1) {
+			document.getElementById("prevName").style.display = "block";
+
+		}
+
 	}
 	const addPrevUser = () => {
-		setPrevEntry(prevEntry.push(entry))
+		setEntry(prevEntry);
 	}
 
 	//------------------------------------------
@@ -73,7 +75,7 @@ const EnterName = () => {
 					Submit
 				</button>
 			</div>
-			<div className=" prevName p-3 w-auto h-auto block text-center text-xl flex justify-between items-center gap-7" id="prevName">{prevEntry}
+			<div className=" prevName p-3 w-auto h-auto block text-center text-xl flex justify-between items-center gap-7" id="prevName" onClick={addPrevUser}><u>{prevEntry}</u>
 				<button className="border-white border-2 w-10">
 					X
 				</button>

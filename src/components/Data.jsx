@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import UserContext from "../Context/UserContext"; 
+import UserContext from "../Context/UserContext";
 
 
 const Data = () => {
-	const { entry, show,setShow } = useContext(UserContext);
+	const { entry, show, setShow } = useContext(UserContext);
 	const [total, setTotal] = useState(null);
 	const [easy, setEasy] = useState(0);
 	const [medium, setMedium] = useState(0);
@@ -21,9 +21,11 @@ const Data = () => {
 				setEasy(res.data.easySolved);
 				setMedium(res.data.mediumSolved);
 				setHard(res.data.hardSolved);
+				setShow(1);
 			})
 			.catch((error) => {
-				console.error("Error fetching data:", error);
+				console.error("Error showing data:", error);
+
 			});
 	}, [apiUrl, entry]);
 
@@ -32,9 +34,10 @@ const Data = () => {
 	}
 
 	if (total === 0) {
-	 
+		setShow(0);
 		return <h1 className="text-5xl">Incorrect Username</h1>;
 	}
+
 	return (
 		<div className=" w-3/4 text-center border-white border-2 rounded-3xl p-5">
 			<div className="text-4xl  font-bold ">Problems Solved: {total} </div>

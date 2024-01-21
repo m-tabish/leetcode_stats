@@ -3,10 +3,10 @@ import UserContext from "./UserContext";
 
 const UserContextProvider = ({ children }) => {
   const [entry, setEntry] = useState(null);
-  const [show, setShow] = useState(null);
+  const [fetch, setFetch] = useState(null);
 
   return (
-    <UserContext.Provider value={{ entry, setEntry ,show, setShow}}>
+    <UserContext.Provider value={{ entry, setEntry ,fetch, setFetch}}>
       {children}
     </UserContext.Provider>
   );
