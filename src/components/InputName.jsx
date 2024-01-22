@@ -8,8 +8,7 @@ const EnterName = () => {
 		e.preventDefault();
 		setEntry(userName);
 	};
-	const pressedKey = (e) => {
-		// e.preventDefault();
+	const pressedKey = (e) => { 
 		const key = e.key;
 		if (key === "Enter") {
 			setEntry(userName);
