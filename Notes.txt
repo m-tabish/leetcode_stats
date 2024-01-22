@@ -1,3 +1,14 @@
+entry -> goes to call api
+userName -> value which is taken from input box and set to userName
+
+
+
+
+
+
+
+
+
 Issues
 1. Clicking twice on home button remove gap between prevUserName and X button
 2. Clicking on Submit when input is empty does not show the prevUserName.
