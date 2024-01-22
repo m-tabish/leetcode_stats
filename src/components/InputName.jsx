@@ -1,8 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import UserContext from "../Context/UserContext";
-
-// entry -> goes to call api
-// userName -> value which is taken from input box and set to userName
 
 
 const EnterName = () => {
@@ -10,57 +7,61 @@ const EnterName = () => {
 	const [userName, setUserName] = useState("");
 	const { entry, setEntry, show, setShow } = useContext(UserContext);
 
-	var [prevEntry, setPrevEntry] = useState([]);
+	var [currEntry, setCurrEntry] = useState("");
+	var [prevUser_array, setPrevUser_array] = useState([]);
 
 
 	//saving to local storage-------------------
+	// before reload
+	useEffect(() => {
+		window.onbeforeunload = () => {
+			var prevUsers_before = localStorage.setItem("prevUsers", JSON.stringify(prevUser_array));
+		}
+
+	}, []);
+
+
 
 	window.onbeforeunload = function () {
-		const prevUser_before = JSON.stringify(prevEntry);
-		prevEntry.push(localStorage.setItem("prevEntry", prevUser_before));
-		console.log(prevUser_before, "before reload");
+		if (entry !== null) localStorage.setItem("currEntry", entry);
+		setCurrEntry(localStorage.getItem("currEntry"));
 	}
 
-	window.onload = function () {
-		var prevUser_after = JSON.parse(localStorage.getItem("prevEntry"));
-		prevEntry.push(prevUser_after);
-		console.log(prevUser_after, "after reload");
+	window.onload = function () { 
+		var last = localStorage.getItem("currEntry");
+		if (last !== null) setCurrEntry(last);
 	}
-
 
 	//Functions--------------------------------- 
 	const handleClick = () => {
-		if (!userName === null) {
+		if (userName === "") {
 			console.log("null");
 			returnHome();
-			displayPrevUser(1);
 		}
-		if (userName !== null) {
-
+		if (userName !== "") {
+			setPrevUser_array([...prevUser_array, userName]);
 			setEntry(userName);
-			prevEntry.push(userName);
-			displayPrevUser(0);
+			setCurrEntry(userName);
+			console.log(prevUser_array);
+			console.log(userName);
+			showPrevUser(0);
 		}
 	};
 
 	const pressedKey = (key) => {
-		//so far if input box is empty then value is being printed home else entry is being set to value;// 
 		if (key === "Enter") {
-			if (userName !== "") {
-				displayPrevUser(0);
-				setEntry(userName);
-				prevEntry.push(userName);
+			if (userName === null) {
+				showPrevUser(1);
 
 			}
 			else {
-				console.log("Home");
-				returnHome();
+				setEntry(userName);
+				showPrevUser(0);
 			}
-
 		}
 	};
 
-	function displayPrevUser(n) {
+	function showPrevUser(n = 1) {
 		if (n === 0) {
 			document.getElementById("prevName").style.display = "none";
 
@@ -71,18 +72,14 @@ const EnterName = () => {
 		}
 
 	}
-	const use_PrevUser = () => {
-		setEntry(prevEntry[0]);///prevEntry is an array!!!!!!!!!!!!!
-		displayPrevUser(0);
-
+	const addPrevUser = (e) => {
+		if (e.target.value !== null) setCurrEntry(entry);
+		showPrevUser(1);
 	}
 	const returnHome = () => {
+		showPrevUser(1);
 		setEntry("");
-		prevEntry.push(entry);
-		displayPrevUser(1);
 	}
-
-
 	const clearStorage = () => {
 		localStorage.clear();
 	}
@@ -91,43 +88,45 @@ const EnterName = () => {
 
 	return (
 		<>
-			<div className="w-1/5 flex justify-center items-center gap-2">
+			<div className="w-2/5 flex justify-center items-center gap-2 border-2 border-white p-10 ">
 				<button
 					type="button"
-					className="border-2 border-white w-2/5 rounded-full "
-					onClick={returnHome}>
-					Home
-				</button>
-				<button
-					type="button"
-					className="border-2 border-white w-2/5 rounded-full "
+					className="border-2 border-white w-2/5 rounded-full active:bg-gray-600 "
 					onClick={clearStorage}>
 					Clear
 				</button>
+				<button
+					type="button"
+					className="border-2 border-white w-2/5 rounded-full active:bg-gray-600 "
+					onClick={returnHome}>
+					Home
+				</button>
+
 				<input
 					type="text"
 					placeholder="Enter Username"
 					value={userName}
 					className="bg-gray-800 text-white w-full h-10 cursor-text border-2 border-white rounded-full outline-white  text-center placeholder:text-center"
-					onChange={(e) => { setUserName(e.target.value); }}
+					onChange={(e) => { if (e.target.value !== "") setUserName(e.target.value); }}
+
 					onKeyDown={(e) => pressedKey(e.key)}
 				/>
 				<button
 					type="button"
-					className="border-2 border-white w-2/5 rounded-full "
+					className="border-2 border-white w-2/5 rounded-full active:bg-gray-600 "
 					onClick={handleClick}>
 					Submit
 				</button>
 			</div>
-			<div className=" prevName p-3 w-auto h-auto text-center text-xl flex justify-between items-center gap-7 " id="prevName" onClick={use_PrevUser}><button><u>{prevEntry}  " " </u></button>
+			<div className=" prevName p-3 w-auto h-auto text-center text-xl flex justify-between items-center gap-7 " id="prevName" onClick={(e) => addPrevUser}><u>{currEntry}</u>
 				<button className="border-white border-2 w-10">
 					X
-				</button></div>
+				</button>
+			</div>
 		</>
 	);
 };
 
 export default EnterName;
-
 
 

@@ -1,15 +1,20 @@
 entry -> goes to call api
 userName -> value which is taken from input box and set to userName
-
-
-
-
-
-
-
-
+ 
 
 Issues
 1. Clicking twice on home button remove gap between prevUserName and X button
 2. Clicking on Submit when input is empty does not show the prevUserName.
 3. Add list of prevUserName.
+
+
+
+
+
+
+
+
+
+##After completion
+1. Take care that to fetch the data faster , the data can be stored to the user's local storage but to prevent uneccessary storage build up , storage session can be used.
+2. 
