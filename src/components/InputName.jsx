@@ -8,15 +8,23 @@ const EnterName = () => {
 		e.preventDefault();
 		setEntry(userName);
 	};
-	const pressedKey = (e) => { 
+	const pressedKey = (e) => {
 		const key = e.key;
 		if (key === "Enter") {
 			setEntry(userName);
 		}
 	};
-
+	const returnHome = () => {
+		setEntry(null);
+	}
 	return (
 		<div className="w-1/5 flex justify-center items-center gap-2">
+			<button
+				type="button"
+				className="border-2 border-white w-2/5 rounded-full "
+				onClick={returnHome}>
+				Home
+			</button>
 			<input
 				type="text"
 				placeholder="Enter username"
@@ -31,6 +39,7 @@ const EnterName = () => {
 				onClick={handleClick}>
 				Submit
 			</button>
+
 		</div>
 	);
 };
