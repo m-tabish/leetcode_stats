@@ -1,5 +1,6 @@
-import React, { useCallback,   useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import Github from "../Assests/github.png";
+import leetcode from "../Assests/leetcode.png";
 import LinkedIn from "../Assests/linkedIn_icon.png";
 import x_icon from "../Assests/x_icon.png";
 
@@ -48,6 +49,16 @@ const iconSize = "w-16"
 					<img
 						src={x_icon}
 						alt="X.com icon"
+					/>
+				</a>
+				<a
+					href="https://leetcode.com/problemset/"
+					target="_blank"
+					rel="noreferrer"
+					className={iconSize}>
+					<img
+						src={leetcode}
+						alt="Leetcode icon"
 					/>
 				</a>
 				<div className="w-fit p-2 h-10 bg-black flex justify-center items-center rounded-full gap-2">

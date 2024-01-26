@@ -27,7 +27,7 @@ const EnterName = () => {
 		setCurrEntry(localStorage.getItem("currEntry"));
 	}
 
-	window.onload = function () { 
+	window.onload = function () {
 		var last = localStorage.getItem("currEntry");
 		if (last !== null) setCurrEntry(last);
 	}
@@ -49,12 +49,14 @@ const EnterName = () => {
 	};
 
 	const pressedKey = (key) => {
+
 		if (key === "Enter") {
 			if (userName === null) {
 				showPrevUser(1);
 
 			}
 			else {
+				setPrevUser_array(prevUser_array => [...prevUser_array, entry]);
 				setEntry(userName);
 				showPrevUser(0);
 			}
