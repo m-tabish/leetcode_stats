@@ -53,7 +53,7 @@ const iconSize = "w-16"
 				<div className="w-fit p-2 h-10 bg-black flex justify-center items-center rounded-full gap-2">
 					<div ref={copyEmailRef}>mohdtabishkhan001@gmail.com</div>
 					<button
-						className="border-1 border-white p-1 rounded-full"
+						className="border-2 border-white p-1 rounded-full"
 						onClick={copyEmailToClipboard}>
 						{copied ? "Copied" : "Copy"}
 					</button>
