@@ -15,6 +15,7 @@ const EnterName = () => {
 		}
 	};
 	const returnHome = () => {
+		setUserName("");
 		setEntry(null);
 	}
 	return (
@@ -30,6 +31,7 @@ const EnterName = () => {
 				placeholder="Enter username"
 				value={userName}
 				className="bg-gray-800 text-white w-full h-10 cursor-text border-2 border-white rounded-full outline-white  text-center placeholder:text-center"
+			 
 				onChange={(e) => setUserName(e.target.value)}
 				onKeyDown={pressedKey}
 			/>
