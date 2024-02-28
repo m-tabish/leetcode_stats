@@ -18,8 +18,9 @@ const ProfileLink = () => {
 
 const iconSize = "w-16"
 	return (
-		<>
-			<div className="flex gap-5 justify-center items-center">
+		<div  className=" border-white border-2 max-[500px]:grid max-[500px]:flex max-[500px]:items-center justify-between grid-rows-2 w-4/5">
+			<div className="flex gap-5 justify-center items-center 
+			">
 				<a
 					href="https://github.com/m-tabish/stats_leetcode"
 					target="_blank"
@@ -50,8 +51,8 @@ const iconSize = "w-16"
 						alt="X.com icon"
 					/>
 				</a>
-				<div className="w-fit p-2 h-10 bg-black flex justify-center items-center rounded-full gap-2">
-					<div ref={copyEmailRef}>mohdtabishkhan001@gmail.com</div>
+				<div className="w-full p-2 h-10 bg-black flex justify-center items-center rounded-full gap-2">
+					<div className="block" ref={copyEmailRef}>mohdtabishkhan001@gmail.com</div>
 					<button
 						className="border-2 border-white p-1 rounded-full"
 						onClick={copyEmailToClipboard}>
@@ -59,7 +60,7 @@ const iconSize = "w-16"
 					</button>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
