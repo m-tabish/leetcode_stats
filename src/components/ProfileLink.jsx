@@ -16,16 +16,17 @@ const ProfileLink = () => {
 		}, 500);
 	}, []);
 
-	const iconSize = "w-10"
-	const sm_iconSize = " max-[700px]:w-3"
+	const iconSize = "w-12"
+	const sm_iconSize = " max-[700px]:w-10 "
+
 	return (
-		<div className="max-[700px]:grid max-[500px]:items-center justify-between max-[700px]:grid-rows-2 max-[700px]:w-4/5 ">
-			<div className="flex gap-5 justify-center items-center my-4">
+		<div className="relative max-[700px]:left-7 max-[700px]:grid items-center justify-between max-[700px]:grid-rows-2 max-[700px]:w-4/5 ">
+			<div className=" flex gap-5 justify-center items-center my-4 ">
 				<a
 					href="https://github.com/m-tabish/stats_leetcode"
 					target="_blank"
 					rel="noreferrer"
-					className={`${iconSize} max-[700px]:${sm_iconSize}`}>
+					className={` ${iconSize} max-[700px]:${sm_iconSize}`}>
 					<img
 						src={Github}
 						alt="github icon"
