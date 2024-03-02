@@ -2,16 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-background-color: black;
-  overflow: hidden;
- 
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: black;
+	overflow: hidden;
+	font-family: "Roboto", "Poppins", sans-serif;
 }
 .App {
-  background-color: white;
-  height: 100vh;
-  
-  border: 2px solid white;
+	background-color: white;
+	height: 100vh;
+
+	border: 2px solid white;
 }

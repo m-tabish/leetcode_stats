@@ -49,16 +49,18 @@ const EnterName = () => {
 				/>
 				<button
 					type="button"
-					className="border-2 border-white w-2/5 rounded-full max-[700px]:text-xl   "
-					onClick={handleClick}>
+					className="border-2 border-white w-2/5 rounded-full max-[700px]:text-xl"
+					onClick={handleClick}
+					onTouchStart={() => setEntry(localStorage.getItem("prev"))} 
+					>
 					Submit
 				</button>
 			</div>
 			<div className={`flex flex-col`}>
-				
-				<p className="max-[700px]:text-2xl">Last Entered Name</p>
+
+				<p className="max-[700px]:text-xl text-2xl text-center font-bold">Recent</p>
 				<button onClick={() => setEntry(localStorage.getItem("prev"))} className="p-1.5 rounded-full text-xs underline underline-offset-4 max-[700px]:text-xl" >
-					<p className="border-white">{localStorage.getItem("prev")}</p>
+					<p className="border-white  max-[700px]:text-xl  text-2xl">{localStorage.getItem("prev")}</p>
 				</button>
 			</div>
 		</>

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../Context/UserContext";
 
-const LeftCol = () => {
+const Data = () => {
 	const { entry } = useContext(UserContext);
 	const [total, setTotal] = useState(null);
 	const [easy, setEasy] = useState(0);
@@ -12,7 +12,6 @@ const LeftCol = () => {
 
 	useEffect(() => {
 		if (!entry) return;
-
 		axios
 			.get(apiUrl)
 			.then((res) => {
@@ -55,4 +54,4 @@ const LeftCol = () => {
 	);
 };
 
-export default LeftCol;
+export default Data;

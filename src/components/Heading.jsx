@@ -12,7 +12,7 @@ function Heading() {
       </h1>
 
       {/* for mobile */}
-      <h1 className="text-4xl w-full text-center bold  ">
+      <h1 className="text-4xl w-full text-center bold max-[600px]:show lg:hidden  ">
         &lt; <u>Leetcode_stats</u> &gt;
       </h1>
       </>
