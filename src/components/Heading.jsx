@@ -15,7 +15,7 @@ function Heading() {
       <h1 className="text-4xl w-full text-center bold max-[600px]:show lg:hidden  ">
         &lt; <u>Leetcode_stats</u> &gt;
       </h1>
-      </>
+    </>
     );
   }
 
@@ -25,6 +25,7 @@ function Heading() {
         <div className="text-5xl text-center font-bold p-3 border-gray-100/30 border-1 rounded-xl  max-[700px]:text-4xl">
           <div className="opacity-100">
             {entry !== null ? `${entry}'s Leetcode Stats` : `Enter Name`}
+
           </div>
         </div>
       </div>

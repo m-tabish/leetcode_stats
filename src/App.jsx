@@ -8,7 +8,7 @@ function App() {
 
   return (
     <UserContextProvider>
-      <div className="flex flex-col w-full h-screen text-white  items-center justify-evenly font-mono overflow-hidden ">
+      <div className="flex flex-col w-full h-screen text-white  items-center justify-evenly  ">
         <Heading></Heading>
         <EnterName></EnterName>
         <Data />
