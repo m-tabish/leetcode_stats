@@ -1,1 +1,1 @@
- 
+ if submit is clicked after fetching results, display is set to show 

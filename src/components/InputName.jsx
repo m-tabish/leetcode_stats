@@ -6,30 +6,35 @@ const EnterName = () => {
 	const [display, setDisplay] = useState("show");
 
 
-	const setData = () => {
+	const saveData = () => {
 
 		if (userName !== null && userName !== '') { localStorage.setItem('prev', userName);; }
 	}
 
 	const handleClick = (e) => {
-		if (entry !== null || "") {
+		if (entry !== null || entry !== "") {
 			e.preventDefault();
-			setDisplay("hidden");
+			console.log(display, "e")
+			if (e.target.value !== "" || undefined || null) { setDisplay("hidden"); }
 			setEntry(userName);
-			setData();
+			saveData();
 			setDisplay("show");
 		}
 
 	};
+
 	const pressedKey = (e) => {
 		const key = e.key;
 		if (key === "Enter") {
 			if (userName !== null && userName !== "") {
+				setDisplay("hidden");
 				setEntry(userName);
-				setData();
+				saveData();
 			}
+			console.log(display);
 		}
 	};
+
 	const returnHome = () => {
 		setDisplay("show")
 		setUserName("");
@@ -68,7 +73,7 @@ const EnterName = () => {
 
 			{/* Recent */}
 			{display === "show" && <div className={`flex flex-col ${display}`}>
-				<p className={`max-[700px]:text-xl text-2xl text-center font-bold ${display}`}>{console.log(display)}Recent</p>
+				<p className={`max-[700px]:text-xl text-2xl text-center font-bold ${display}`}>Recent</p>
 				<button onClick={() => { setDisplay("hidden"); setEntry(localStorage.getItem("prev")); }} className="p-1.5 rounded-full text-xs underline underline-offset-4 max-[700px]:text-xl" >
 					<p className="border-white  max-[700px]:text-xl  text-2xl">{localStorage.getItem("prev")}</p>
 				</button>
