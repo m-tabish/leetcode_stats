@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import UserContext from "../Context/UserContext";
 const EnterName = () => {
 	const [userName, setUserName] = useState("");
-	const { entry, setEntry, setFetched, fetched } = useContext(UserContext);
+	const { entry, setEntry } = useContext(UserContext);
 	const [display, setDisplay] = useState("show");
 
 
