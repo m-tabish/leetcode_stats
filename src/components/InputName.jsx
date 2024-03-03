@@ -17,7 +17,7 @@ const EnterName = () => {
 			setDisplay("hidden");
 			setEntry(userName);
 			setData();
-
+			setDisplay("show");
 		}
 
 	};
@@ -26,14 +26,14 @@ const EnterName = () => {
 		if (key === "Enter") {
 			if (userName !== null && userName !== "") {
 				setEntry(userName);
-				setData(); 
+				setData();
 			}
 		}
 	};
 	const returnHome = () => {
+		setDisplay("show")
 		setUserName("");
 		setEntry("");
-		setDisplay("show")
 	}
 	return (
 		<>
@@ -69,7 +69,7 @@ const EnterName = () => {
 			{/* Recent */}
 			{display === "show" && <div className={`flex flex-col ${display}`}>
 				<p className={`max-[700px]:text-xl text-2xl text-center font-bold ${display}`}>{console.log(display)}Recent</p>
-				<button onClick={() => { setEntry(localStorage.getItem("prev")); setDisplay("hidden") }} className="p-1.5 rounded-full text-xs underline underline-offset-4 max-[700px]:text-xl" >
+				<button onClick={() => { setDisplay("hidden"); setEntry(localStorage.getItem("prev")); }} className="p-1.5 rounded-full text-xs underline underline-offset-4 max-[700px]:text-xl" >
 					<p className="border-white  max-[700px]:text-xl  text-2xl">{localStorage.getItem("prev")}</p>
 				</button>
 			</div>}

@@ -26,7 +26,7 @@ const Data = () => {
 	}, [apiUrl, entry]);
 
 	if (!entry) {
-		return <div></div>;
+		return (<div></div>);
 	}
 
 	if (total === 0) {
